@@ -136,7 +136,6 @@ generated_count, zip_name = generate_monet_images(
 - Состояния оптимизаторов
 - Номер эпохи
 
-В соревновании Kaggle "I'm Something of a Painter Myself" данная реализация CycleGAN вошла в топ 15%  решений. 
 
 ## Дополнительные исследования
 
