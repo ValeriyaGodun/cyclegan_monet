@@ -6,7 +6,7 @@
 
 Цель - преобразовать обычные фотографии в картины в стиле Клода Моне.
 
-В соревновании Kaggle "I'm Something of a Painter Myself" данная реализация CycleGAN входит в топ 15%  решений. 
+В соревновании Kaggle "I'm Something of a Painter Myself" моя реализация CycleGAN входит в **топ 15%**  решений. 
 
 ## Архитектура
 
@@ -26,11 +26,13 @@ CycleGAN использует две пары моделей:
 
 - Картины Моне:
 300 оцифрованных картин Клода Моне.
-!!!здесь добавить пример картин
+
+<img width="314" height="310" alt="image" src="https://github.com/user-attachments/assets/43409dd2-ef26-497e-b85e-5a716ae62a18" /> <img width="299" height="299" alt="image" src="https://github.com/user-attachments/assets/31fb08c8-9872-4369-bd8c-29e37d987199" />
 
 - Фотографии:
 7028 современных различных фотографий.
-!!!здесь добавить пример фото
+
+<img width="300" height="299" alt="image" src="https://github.com/user-attachments/assets/8d8987ad-c1c8-4233-ae39-741c4a9e0b25" /> <img width="298" height="295" alt="image" src="https://github.com/user-attachments/assets/412301aa-0978-43b2-9b7e-d0036d8941ae" />
 
 Для оптимизации времени обучения (из-за ограничений в соревновании) было случайным образом отобрано 1000 изображений.
 
@@ -43,13 +45,13 @@ CycleGAN использует две пары моделей:
 Общая функция потерь генератора состоит из трех компонентов:
 
 1. **Adversarial Loss** (MSELoss)
-   - Обманывает дискриминаторы
+   - Измеряет способность генератора создавать реалистичные данные, способные обмануть дискриминатор
 
 2. **Cycle Consistency Loss** (L1Loss, λ=10.0)
-   - Гарантирует обратимость преобразования
+   - Измеряет разницу между восстановленным изображением и входным изображением, т.е. гарантирует обратимость преобразования
 
 3. **Identity Loss** (L1Loss, λ=0.5)
-   - Сохраняет цветовую схему и предотвращает излишние искажения цветов
+   - Измеряет степень сходства между исходным изображением и результатом генерации, стремясь к тому, чтобы сгенерированное изображение было неотличимо от оригинала
 
 **Итоговая формула:**
 Total_Loss = Adversarial_Loss + 10.0 * Cycle_Loss + 5.0 * Identity_Loss,
@@ -107,7 +109,9 @@ train_cyclegan(model, dataloader, num_epochs, save_interval)
 ## Генерация изображений
 
 **Быстрая визуализация результатов после обучения**
-!!!Картиники 5
+
+<img width="987" height="401" alt="image" src="https://github.com/user-attachments/assets/b16c9d99-ad5c-4e49-83e1-93f1242fe950" />
+
 
 **Генерация всех изображений для submission**
 
@@ -122,7 +126,9 @@ generated_count, zip_name = generate_monet_images(
 )
 ```
 **Визуализация результатов из случайно отобранных созданных изображений**
-!!!Картиники конечные
+
+<img width="1007" height="655" alt="image" src="https://github.com/user-attachments/assets/c0145874-8247-44ad-96ba-111a4eed818d" />
+
 
 ## Результаты
 
@@ -132,7 +138,7 @@ generated_count, zip_name = generate_monet_images(
 - Состояния оптимизаторов
 - Номер эпохи
 
-В соревновании Kaggle "I'm Something of a Painter Myself" данная реализация CycleGAN входит в топ 15%  решений. 
+В соревновании Kaggle "I'm Something of a Painter Myself" данная реализация CycleGAN вошла в топ 15%  решений. 
 
 ## Дополнительные исследования
 
