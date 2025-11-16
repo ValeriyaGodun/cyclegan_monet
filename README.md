@@ -6,7 +6,7 @@
 
 Цель - преобразовать обычные фотографии в картины в стиле Клода Моне.
 
-В соревновании Kaggle "I'm Something of a Painter Myself" моя реализация CycleGAN входит в **топ 15%**  решений. 
+В соревновании Kaggle "I'm Something of a Painter Myself" моя реализация CycleGAN входит в **топ 10%** решений (12/112). 
 
 ## Архитектура
 
@@ -80,7 +80,7 @@ BatchNorm нормализует по всему батчу изображени
 ## Гиперпараметры
 
 ```
-Epoch: 55
+Epoch: 65
 Batch size: 6
 Learning rate: 0.0002
 Optimizer: Adam 
